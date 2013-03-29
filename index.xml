@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+	<ModulePrefs title="Hangout Starter">
+		<Require feature="rpc" />
+		<Require feature="views" />
+		<Require feature="locked-domain" />
+	</ModulePrefs>
+	<Content type="html"><![CDATA[
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Bootstrap -->
+<link href="//www.essentialdots.com/hangout/css/bootstrap.min.css" rel="stylesheet" media="screen">
+</head>
+<body>
+   <div class="container">
+
+      <form class="form-signin">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <input type="text" class="input-block-level" placeholder="Email address">
+        <input type="password" class="input-block-level" placeholder="Password">
+        <label class="checkbox">
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+        <button class="btn btn-large btn-primary" type="submit">Sign in</button>
+      </form>
+
+    </div> <!-- /container -->
+  <script type="text/javascript" src="//www.google.com/jsapi"></script>
+  <script type="text/javascript">google.load("jquery", "1.7.0");</script>
+<script src="//www.essentialdots.com/hangout/js/bootstrap.min.js"></script>
+<script src="https://hangoutsapi.talkgadget.google.com/hangouts/api/hangout.js?v=1.4" ></script>
+
+<p>
+<input class="button" type="button" value="Show participants!" id="showParticipants" 
+    style="visibility:hidden;"
+    onClick="showParticipants()"/>
+</p>
+
+<div id="participantsDiv"></div>
+
+<script>
+$(document).ready(function() {
+	console.log('xxxx');
+showParticipants();
+// Handler for .ready() called.
+});
+
+function showParticipants() {
+  var participants = gapi.hangout.getParticipants();
+
+  var retVal = '<p>Participants: </p><ul>';
+
+  for (var index in participants) {
+    var participant = participants[index];
+
+    if (!participant.person) {
+      retVal += '<li>A participant not running this app</li>';
+    }
+    retVal += '<li>' + participant.person.displayName + '</li>';
+  }
+
+  retVal += '</ul>';
+
+  var div = document.getElementById('participantsDiv');
+
+  div.innerHTML = retVal;
+}
+
+function init() {
+  // When API is ready...                                                         
+  gapi.hangout.onApiReady.add(
+      function(eventObj) {
+        if (eventObj.isApiReady) {
+          document.getElementById('showParticipants')
+            .style.visibility = 'visible';
+        }
+      });
+}
+
+// Wait for gadget to load.                                                       
+gadgets.util.registerOnLoadHandler(init);
+</script>
+</body>
+</html>
+]]>
+</Content>
+</Module>
