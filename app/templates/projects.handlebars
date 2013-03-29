@@ -1,0 +1,96 @@
+<div class="container">
+    <form class="form-small">
+        {{#if isLoaded}}
+            <div class="progress progress-striped">
+                <div class="bar" style="width: 40%;"></div>
+            </div>
+        {{else}}
+            <div class="loading"></div>
+            <div class="progress progress-striped active">
+                <div class="bar" style="width: 40%;"></div>
+            </div>
+        {{/if}}
+
+        <h3>
+            Select project <button class="btn btn-small pull-right" type="button" data-toggle="button" onclick="$(this).parents('form').find('.help').toggle();" data-loading-text="Loading...">Help me <i class="icon-user"></i></button>
+        </h3>
+
+        {{#view Ember.RadioButtonGroup name="project" selectedValueBinding=TPPoker.Application.state.project}}{{/view}}
+
+        <div class="el">
+            {{#if isLoaded}}
+            {{else}}
+                <p class="text">Loading...</p>
+            {{/if}}
+
+            {{#each model.projects}}
+                <label class="radio">
+                    {{view Ember.RadioButton groupBinding="Ember.RadioButtonGroup_project" valueBinding=this}}
+                    [{{id}}] {{name}}
+                </label>
+            {{/each}}
+        </div>
+
+        <button class="btn btn-large btn-primary" type="submit" {{action create href=true}} {{bindAttr disabled=isNotLoaded}} data-loading-text="Loading...">Select</button>
+
+        <div class="well">
+            <p>
+                Selected project: {{TPPoker.Application.state.project.name}}
+            </p>
+        </div>
+        <div class="help well">
+            <p class="text-info">At the moment API supports following filtering operators:</p>
+
+            <table class="table table-hover table-condensed">
+                <thead>
+                <tr>
+                    <th>Operator</th>
+                    <th>Sample</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Equality</td>
+                    <td>Name <b>eq</b> 'My Name'</td>
+                </tr>
+                <tr>
+                    <td>Not equality</td>
+                    <td>Name <b>ne</b> 'My Name'</td>
+                </tr>
+                <tr>
+                    <td>Greater than</td>
+                    <td>Id <b>gt</b> 5</td>
+                </tr>
+                <tr>
+                    <td>Greater than or equal</td>
+                    <td>Project.Id <b>gte</b> 5</td>
+                </tr>
+                <tr>
+                    <td>Less than</td>
+                    <td>CreateDate <b>lt</b> '2011-10-01'</td>
+                </tr>
+                <tr>
+                    <td>Less than or equal</td>
+                    <td>TimeSpent <b>lte</b> 5.0</td>
+                </tr>
+                <tr>
+                    <td>In <i>list</i></td>
+                    <td>Id <b>in</b> (155,156)</td>
+                </tr>
+                <tr>
+                    <td>Contains</td>
+                    <td>Name <b>contains</b> 'rest'</td>
+                </tr>
+                <tr>
+                    <td>Is null</td>
+                    <td>Release <b>is</b> null</td>
+                </tr>
+                <tr>
+                    <td>Is not null</td>
+                    <td>Description <b>is not</b> null</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </form>
+</div>
