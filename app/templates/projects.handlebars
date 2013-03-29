@@ -29,13 +29,20 @@
                     [{{id}}] {{name}}
                 </label>
                 <div class="well">
-                    <p>All project's releases/iterations:</p>
+                    <p>All project's releases/iterations/user stories:</p>
                     <ul>
                         {{#each releases}}
-                            <li>[{{id}}] {{name}} {{project.name}}
+                            <li>[{{id}}] {{name}}, {{project.name}}
                                 <ul>
                                     {{#each iterations}}
-                                        <li>[{{id}}] {{name}} {{project.name}}</li>
+                                        <li>[{{id}}] {{name}}, {{project.name}}
+                                            <ul>
+                                                {{#each userStories}}
+                                                    <li>[{{id}}] {{name}}, {{project.name}}
+                                                    </li>
+                                                {{/each}}
+                                            </ul>
+                                        </li>
                                     {{/each}}
                                 </ul>
                             </li>
