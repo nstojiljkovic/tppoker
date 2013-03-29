@@ -27,18 +27,29 @@
                 <label class="radio">
                     {{view Ember.RadioButton groupBinding="Ember.RadioButtonGroup_project" valueBinding=this}}
                     [{{id}}] {{name}}
+                </label>
+                <div class="well">
+                    <p>All project's releases/iterations:</p>
+                    <ul>
+                        {{#each releases}}
+                            <li>[{{id}}] {{name}} {{project.name}}
+                                <ul>
+                                    {{#each iterations}}
+                                        <li>[{{id}}] {{name}} {{project.name}}</li>
+                                    {{/each}}
+                                </ul>
+                            </li>
+                        {{/each}}
+                    </ul>
+                    <p>All project's iterations:</p>
                     <ul>
                         {{#each iterations}}
                             <li>[{{id}}] {{name}} {{project.name}}</li>
                         {{/each}}
                     </ul>
-                </label>
+                </div>
             {{/each}}
         </div>
-
-        {{#each model.iterations}}
-             <p>[{{id}}] {{name}} {{project.name}}</p>
-        {{/each}}
 
         <button class="btn btn-large btn-primary" type="submit" {{action create href=true}} {{bindAttr disabled=isNotLoaded}} data-loading-text="Loading...">Select</button>
 
