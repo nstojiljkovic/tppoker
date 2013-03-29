@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" xmlns="http://www.w3.org/1999/html">
     <form class="form-small">
         {{#if isLoaded}}
             <div class="progress progress-striped">
@@ -27,9 +27,18 @@
                 <label class="radio">
                     {{view Ember.RadioButton groupBinding="Ember.RadioButtonGroup_project" valueBinding=this}}
                     [{{id}}] {{name}}
+                    <ul>
+                        {{#each iterations}}
+                            <li>[{{id}}] {{name}} {{project.name}}</li>
+                        {{/each}}
+                    </ul>
                 </label>
             {{/each}}
         </div>
+
+        {{#each model.iterations}}
+             <p>[{{id}}] {{name}} {{project.name}}</p>
+        {{/each}}
 
         <button class="btn btn-large btn-primary" type="submit" {{action create href=true}} {{bindAttr disabled=isNotLoaded}} data-loading-text="Loading...">Select</button>
 

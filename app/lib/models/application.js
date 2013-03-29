@@ -25,23 +25,21 @@ TPPoker.Application.Application = Ember.Object.extend({
 				jsonp: 'callback',
 				timeout: 5000
 			}).done(function(data) {
-					this.set('lastLoadingError', '');
-					this.set('version', data.Version);
-					this.set('loaded', true);
-					console.log('done');
-					TPPoker.Application.Router.router.transitionTo('projects');
-				}).fail(function(jqXHR, textStatus, errorThrown) {
-					if (textStatus=='timeout' && typeof retryCount != 'undefined' && retryCount > 0) {
-						console.log('trying again.');
-						this.load(true, retryCount--);
-					} else {
-						this.set('lastLoadingError', textStatus);
-						console.log('fail');
-					}
-				}).always(function() {
-					this.set('loading', false);
-					console.log('always');
-				});
+				this.set('lastLoadingError', '');
+				this.set('version', data.Version);
+				this.set('loaded', true);
+				TPPoker.Application.Router.router.transitionTo('projects');
+			}).fail(function(jqXHR, textStatus, errorThrown) {
+				if (textStatus=='timeout' && typeof retryCount != 'undefined' && retryCount > 0) {
+					console.log('trying again.');
+					this.load(true, retryCount--);
+				} else {
+					this.set('lastLoadingError', textStatus);
+					console.log('fail');
+				}
+			}).always(function() {
+				this.set('loading', false);
+			});
 		}
 	},
 	apiUrl: function() {

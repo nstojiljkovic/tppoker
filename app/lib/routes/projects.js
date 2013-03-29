@@ -6,6 +6,7 @@ TPPoker.Application.ProjectsRoute = Ember.Route.extend({
 		} else {
 			var ProjectsModel = Ember.Object.extend({
 				projects: TPPoker.Application.Project.find(),
+				iterations: TPPoker.Application.Iteration.find(),
 				isLoaded: function() {
 					var projects = this.get('projects');
 					var isLoaded = projects.filterProperty('isLoaded', true).get('length') > 0;
