@@ -37,7 +37,10 @@ body {
 	display: none;
 }
 .el {
-	margin: 0 0 15px;
+	margin: 15px 0 15px;
+}
+.no-bottom-margin {
+    margin-bottom: 0;
 }
 .form-small {
 	position: relative;
@@ -63,4 +66,10 @@ body {
 	height: auto;
 	margin-bottom: 15px;
 	padding: 7px 9px;
+}
+
+input,
+textarea,
+.uneditable-input {
+    width: 540px;
 }

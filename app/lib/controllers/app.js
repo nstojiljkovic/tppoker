@@ -1,26 +1,30 @@
 require('ember-tppoker/core');
 
 TPPoker.Application.AppController = Ember.ObjectController.extend({
-	/*
-	 url: function() {
-	 return this.get('content.url');
-	 }.property('content.url')*/
 });
 
 TPPoker.Application.AppNewController = TPPoker.Application.AppController.extend({
+	error: '',
+	/*
+	error: function(key, value) {
+		if (arguments.length === 1) {
+			// getter
+			return this.get('content.lastLoadingError');
+		} else {
+			// setter
+			this.set('content.lastLoadingError', value);
+			return value;
+		}
+	}.property('content.lastLoadingError'),
+	*/
 	create: function() {
 		var app = this.get('content');
-		app.load(false, 1);
+		this.set('error', '');
+		app.set('lastLoadingError', '');
+		if (app.get('isModerator')) {
+			app.load(false, 1, 'wizard.project');
+		} else {
+			this.set('error', 'The selected option has not been implemented yet');
+		}
 	}
-});
-
-TPPoker.Application.AppsController = Ember.ArrayController.extend({
-	/*
-	 longSongCount: function() {
-	 var longSongs = this.filter(function(song) {
-	 return song.get('duration') > 30;
-	 });
-	 return longSongs.get('length');
-	 }.property('@each.duration')
-	 */
 });

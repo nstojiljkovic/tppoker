@@ -19,6 +19,10 @@
 
         <div class="el">
             {{#if isLoaded}}
+                <label class="radio">
+                    {{view Ember.RadioButton groupBinding="Ember.RadioButtonGroup_project" valueBinding=model.nullProject}}
+                    All
+                </label>
             {{else}}
                 <p class="text">Loading...</p>
             {{/if}}
@@ -28,10 +32,11 @@
                     {{view Ember.RadioButton groupBinding="Ember.RadioButtonGroup_project" valueBinding=this}}
                     [{{id}}] {{name}}
                 </label>
+                <!--
                 <div class="well">
                     <p>All project's releases/iterations/user stories:</p>
                     <ul>
-                        {{#each releases}}
+                        {{#each disabled__releases}}
                             <li>[{{id}}] {{name}}, {{project.name}}
                                 <ul>
                                     {{#each iterations}}
@@ -50,25 +55,27 @@
                     </ul>
                     <p>All project's iterations:</p>
                     <ul>
-                        {{#each iterations}}
+                        {{#each disabled__iterations}}
                             <li>[{{id}}] {{name}} {{project.name}}</li>
                         {{/each}}
                     </ul>
                 </div>
+                -->
             {{/each}}
         </div>
 
-        <button class="btn btn-large btn-primary" type="submit" {{action create href=true}} {{bindAttr disabled=isNotLoaded}} data-loading-text="Loading...">Select</button>
+        <button class="btn btn-large btn-primary" type="submit" {{action select href=true}} {{bindAttr disabled=isNotLoaded}} data-loading-text="Loading...">Select</button>
 
-        <div class="well">
+        <div class="well" style="display: none">
             <p>
                 Selected project: {{TPPoker.Application.state.project.name}}
             </p>
         </div>
-        <div class="help well">
+
+        <div class="el no-bottom-margin help well">
             <p class="text-info">At the moment API supports following filtering operators:</p>
 
-            <table class="table table-hover table-condensed">
+            <table class="table table-hover table-condensed no-bottom-margin">
                 <thead>
                 <tr>
                     <th>Operator</th>

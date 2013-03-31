@@ -104,15 +104,19 @@ TPPoker.TargetProcessJSONPAdapter = DS.Adapter.extend({
 		var root = this.rootForType(type), plural = this.pluralize(root);
 		var queryArr = [];
 		for (var prop in query) {
-			var valuesArr = [];
-			if (typeof query[prop] == "object") {
-				for (var i = 0; i < query[prop].length; i++) {
-					valuesArr.push('\'' + query[prop][i].toString().replace('\'', '\\\'') + '\'');
-				}
+			if (prop == 'q') {
+				queryArr.push(query[prop].toString());
 			} else {
-				valuesArr.push('\'' + query[prop].toString().replace('\'', '\\\'') + '\'');
+				var valuesArr = [];
+				if (typeof query[prop] == "object") {
+					for (var i = 0; i < query[prop].length; i++) {
+						valuesArr.push('\'' + query[prop][i].toString().replace('\'', '\\\'') + '\'');
+					}
+				} else {
+					valuesArr.push('\'' + query[prop].toString().replace('\'', '\\\'') + '\'');
+				}
+				queryArr.push(prop + ' in (' + valuesArr.join(',') + ')');
 			}
-			queryArr.push(prop + ' in (' + valuesArr.join(',') + ')');
 		}
 
 		this.queueAjax(root, function(){

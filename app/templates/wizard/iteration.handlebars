@@ -1,0 +1,44 @@
+<div class="container" xmlns="http://www.w3.org/1999/html">
+    <form class="form-small">
+        {{#if isLoaded}}
+            <div class="progress progress-striped">
+                <div class="bar" style="width: 80%;"></div>
+            </div>
+        {{else}}
+            <div class="loading"></div>
+            <div class="progress progress-striped active">
+                <div class="bar" style="width: 80%;"></div>
+            </div>
+        {{/if}}
+
+        <h3>
+            Select iteration <button class="btn btn-small pull-right" type="button" data-toggle="button" onclick="$(this).parents('form').find('.help').toggle();" data-loading-text="Loading...">Help me <i class="icon-user"></i></button>
+        </h3>
+
+        {{#view Ember.RadioButtonGroup name="iteration" selectedValueBinding=TPPoker.Application.state.iteration}}{{/view}}
+
+        <div class="el">
+            {{#if isLoaded}}
+                <label class="radio">
+                    {{view Ember.RadioButton groupBinding="Ember.RadioButtonGroup_iteration" valueBinding=model.nullRelease}}
+                    All
+                </label>
+            {{else}}
+                <p class="text">Loading...</p>
+            {{/if}}
+
+            {{#each model.iterations}}
+                <label class="radio">
+                    {{view Ember.RadioButton groupBinding="Ember.RadioButtonGroup_iteration" valueBinding=this}}
+                    [{{id}}] {{name}}
+                </label>
+            {{/each}}
+        </div>
+
+        <button class="btn btn-large btn-primary" type="submit" {{action select href=true}} {{bindAttr disabled=isNotLoaded}} data-loading-text="Loading...">Select</button>
+
+        <div class="el no-bottom-margin help well">
+            <p class="no-bottom-margin">TODO: <b>Documentation pending</b>.</p>
+        </div>
+    </form>
+</div>

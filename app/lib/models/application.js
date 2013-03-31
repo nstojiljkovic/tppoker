@@ -3,19 +3,21 @@ TPPoker.Application.Application = Ember.Object.extend({
 	url: '',
 	version: '',
 	teams: [],
-	role: 'developer',
+	role: 'moderator', // 'developer',
 	loading: false,
 	loaded: false,
 	lastLoadingError: '',
-	load: function(force, retryCount) {
+	load: function(force, retryCount, transitionTo) {
 		if (this.get('apiUrl')=='') {
 			this.set('lastLoadingError', 'no URL');
-		} else if (force || (!this.get('loading') && !this.get('loaded'))) {
+		} else if (force || !this.get('loading')) {
 			TPPoker.TargetProcessJSONPAdapter.reopen({
 				url: this.get('url').replace(/\/$/g,"")
 			});
 
 			this.set('loading', true);
+			this.set('lastLoadingError', '');
+
 			$.ajax({
 				type: 'GET',
 				crossDomain: true,
@@ -28,17 +30,20 @@ TPPoker.Application.Application = Ember.Object.extend({
 				this.set('lastLoadingError', '');
 				this.set('version', data.Version);
 				this.set('loaded', true);
-				TPPoker.Application.Router.router.transitionTo('projects');
+				this.get('loading', false);
+				if (transitionTo) {
+					TPPoker.Application.Router.router.transitionTo(transitionTo);
+				}
 			}).fail(function(jqXHR, textStatus, errorThrown) {
+				this.set('loading', false);
 				if (textStatus=='timeout' && typeof retryCount != 'undefined' && retryCount > 0) {
 					console.log('trying again.');
-					this.load(true, retryCount--);
+					this.load(true, --retryCount);
 				} else {
 					this.set('lastLoadingError', textStatus);
 					console.log('fail');
 				}
 			}).always(function() {
-				this.set('loading', false);
 			});
 		}
 	},

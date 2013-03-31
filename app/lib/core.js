@@ -1,4 +1,5 @@
 require('jquery');
+require('bootstrap');
 require('handlebars');
 require('ember');
 require('ember-data');
@@ -12,6 +13,9 @@ TPPoker.Application = Ember.Application.create({
 	LOG_TRANSITIONS: true,
 	state: Ember.Object.create({
 		app: null,
-		project: null
+		project: 'null',
+		release: 'null',
+		iteration: 'null',
+		query: ''
 	})
 });

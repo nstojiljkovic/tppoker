@@ -1,0 +1,25 @@
+<div class="container" xmlns="http://www.w3.org/1999/html">
+    <form class="form-small">
+        <div class="progress progress-striped">
+            <div class="bar" style="width: 80%;"></div>
+        </div>
+
+        <h3>
+            Verify the query and selected user stories <button class="btn btn-small pull-right" type="button" data-toggle="button" onclick="$(this).parents('form').find('.help').toggle();" data-loading-text="Loading...">Help me <i class="icon-user"></i></button>
+        </h3>
+
+        <div class="el">
+            {{view Ember.TextArea valueBinding=query rows="5"}}
+        </div>
+
+        {{#each model.userStories}}
+            <p>[{{id}}] {{name}}</p>
+        {{/each}}
+
+        <button class="btn btn-large btn-primary" type="submit" {{action select href=true}} {{bindAttr disabled=isNotLoaded}} data-loading-text="Loading...">Select</button>
+
+        <div class="el no-bottom-margin help well">
+            <p class="no-bottom-margin">TODO: <b>Documentation pending</b>.</p>
+        </div>
+    </form>
+</div>

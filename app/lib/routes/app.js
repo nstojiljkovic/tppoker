@@ -2,7 +2,8 @@ TPPoker.Application.AppNewRoute = Ember.Route.extend({
 	redirect: function() {
 		var app = TPPoker.Application.state.get('app');
 		if (app!=null && app.get('loaded')) {
-			this.transitionTo('projects');
+			app.set('loading', false);
+			//this.transitionTo('wizard.project');
 		}
 	},
 	model: function(params) {

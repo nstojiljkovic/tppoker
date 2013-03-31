@@ -34,17 +34,27 @@
             <p>Please specify the Target Process application URL:</p>
             {{view Ember.TextField class="input-block-level" placeholder="Target Process URL" valueBinding=url disabledBinding=isNotModerator}}
             <p class="text-info">You have to be logged in to Target Process before you can use this Hangout application.</p>
-            {{#if lastLoadingError}}
-                <div class="alert alert-block alert-error fade in">
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    <p class="text-error">The following error occurred while trying to use Target Process REST API: <b>{{lastLoadingError}}</b>. Please double check that you have entered the correct URL of the Target Process application and that you are logged in on it.</p>
-                </div>
-            {{/if}}
         </div>
 
         <button class="btn btn-large btn-primary" type="submit" {{action create href=true}} data-loading-text="Loading...">Start</button>
-        <div class="help well">
-            <p>Hello world!</p>
+
+
+        {{#if error}}
+            <div class="el no-bottom-margin alert alert-block alert-error fade in">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <p class="text-error">The following error occurred: <b>{{error}}</b>.</p>
+            </div>
+        {{/if}}
+
+        {{#if lastLoadingError}}
+            <div class="el no-bottom-margin alert alert-block alert-error fade in">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <p class="text-error">The following error occurred while trying to use Target Process REST API: <b>{{lastLoadingError}}</b>. Please double check that you have entered the correct URL of the Target Process application and that you are logged in on it.</p>
+            </div>
+        {{/if}}
+
+        <div class="el no-bottom-margin help well">
+            <p class="no-bottom-margin">TODO: <b>Documentation pending</b>.</p>
         </div>
 
     </form>
