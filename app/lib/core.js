@@ -1,4 +1,5 @@
 require('jquery');
+require('jquery-ui');
 require('bootstrap');
 require('handlebars');
 require('ember');

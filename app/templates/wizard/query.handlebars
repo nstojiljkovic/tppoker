@@ -12,8 +12,16 @@
             {{view Ember.TextArea valueBinding=query rows="5"}}
         </div>
 
+        {{#view Ember.SortableContainer collectionBinding="model.userStories"}}
+            {{#each model.userStories}}
+                {{#view Ember.SortableItem itemBinding="this" class="ui-state-default"}}
+                    [{{id}}] {{name}}
+                {{/view}}
+            {{/each}}
+        {{/view}}
+
         {{#each model.userStories}}
-            <p>[{{id}}] {{name}}</p>
+            <p class="ui-state-default">[{{id}}] {{name}}</p>
         {{/each}}
 
         <button class="btn btn-large btn-primary" type="submit" {{action select href=true}} {{bindAttr disabled=isNotLoaded}} data-loading-text="Loading...">Select</button>

@@ -73,3 +73,9 @@ textarea,
 .uneditable-input {
     width: 540px;
 }
+
+.sortable .ui-state-default {
+    cursor: pointer;
+    /*display: block;*/
+    background: #ffffff;
+}
