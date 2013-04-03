@@ -28,7 +28,6 @@ Ember.SortableContainer =  Ember.View.extend({
 		this.initializedSortable = true;
 		this.$().sortable({
 			update: jQuery.proxy(function( event, ui ) {
-				console.log('order changed. new order:');
 				var newOrder = this.$().sortable("toArray");
 				var collection = Ember.A([]);
 				for (var i = 0; i < newOrder.length; i++) {
@@ -38,7 +37,6 @@ Ember.SortableContainer =  Ember.View.extend({
 						    childView.constructor == Ember.SortableItem) {
 							var item = this.get('childViews')[j].get('item');
 							collection.push(item);
-							console.log(item.get('name'));
 						}
 					}
 				}

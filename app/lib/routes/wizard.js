@@ -99,40 +99,28 @@ TPPoker.Application.WizardQueryRoute = TPPoker.Application.WizardRoute.extend({
 
 		var QueryModel = Ember.Object.extend({
 			queryBinding: 'TPPoker.Application.state.query',
+			_queryDidChange: function() {
+				this.set('_userStories', TPPoker.Application.UserStory.find({q: this.get('query')}));
+			}.observes('query'),
+			_userStories: null,
+			_userStoriesQuery: null,
 			userStories: function(key, value) {
-				return TPPoker.Application.UserStory.find({q: this.get('query')});
-				/*
 				if (arguments.length === 1) {
 					// getter
-					return this.get('content.lastLoadingError');
+					if (this.get('_userStories') === null) {
+						this.set('_userStories', TPPoker.Application.UserStory.find({q: this.get('query')}));
+					}
+					return this.get('_userStories');
 				} else {
 					// setter
-					this.set('content.lastLoadingError', value);
+					this.set('_userStories', value);
 					return value;
-				}*/
-			}.property('query')
+				}
+			}.property('query', '_userStories')
 		});
 		var model = QueryModel.create({});
 		model.set('query', queryArr.join(' and '));
 
 		return model;
-		/*
-		if (app==null || !app.get('loaded')) {
-			return null;
-		} else {
-			var IterationModel = Ember.Object.extend({
-				iterations: TPPoker.Application.state.get('release.iterations'),
-				nullRelease: 'null',
-				isLoaded: function() {
-					var isLoaded = this.get('iterations').filterProperty('isLoaded', true).get('length') > 0;
-					return isLoaded;
-				}.property('iterations.@each.isLoaded'),
-				isNotLoaded: function() {
-					return !this.get('isLoaded');
-				}.property('isLoaded')
-			});
-			return IterationModel.create({});
-		}
-		*/
 	}
 });

@@ -9,8 +9,6 @@ TPPoker.Application.WizardProjectController = TPPoker.Application.AppController.
 		if (typeof selectedProject === 'object') {
 			TPPoker.Application.Router.router.transitionTo('wizard.release');
 		} else {
-			// @todo: transition to query window
-			console.log('@todo: transition to query window');
 			TPPoker.Application.Router.router.transitionTo('wizard.query');
 		}
 	}
@@ -22,8 +20,6 @@ TPPoker.Application.WizardReleaseController = TPPoker.Application.AppController.
 		if (typeof selectedRelease === 'object') {
 			TPPoker.Application.Router.router.transitionTo('wizard.iteration');
 		} else {
-			// @todo: transition to query window
-			console.log('@todo: transition to query window');
 			TPPoker.Application.Router.router.transitionTo('wizard.query');
 		}
 	}
