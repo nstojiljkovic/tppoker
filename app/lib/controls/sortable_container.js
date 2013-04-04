@@ -1,56 +1,53 @@
 /**
  @class
 
-     Sortable (jQuery UI Sortable) list.
+	 Sortable (jQuery UI Sortable) list.
 
  @extends Ember.View
  */
-Ember.SortableContainer =  Ember.View.extend({
+Ember.SortableContainer = Ember.View.extend({
 
-    classNames: ["sortable"],
-    tagName: "ul",
+	classNames: ["sortable"],
+	tagName   : "ul",
 
-	collection: null,
+	collection         : null,
 	initializedSortable: false,
 
 	didInsertElement: function () {
 		this._super();
 
-		Ember.run.schedule('render', this, function() {
+		Ember.run.schedule('render', this, function () {
 			this._initSortable();
 		});
 	},
 
-	_initSortable: function() {
+	_initSortable: function () {
 		if (this.initializedSortable) {
 			this.$().sortable("destroy");
 		}
 		this.initializedSortable = true;
-		this.$().sortable({
-			update: jQuery.proxy(function( event, ui ) {
-				var newOrder = this.$().sortable("toArray");
-				var collection = Ember.A([]);
-				for (var i = 0; i < newOrder.length; i++) {
-					for (var j = 0; j < this.get('childViews').length; j++) {
-						var childView = this.get('childViews')[j];
-						if (newOrder[i] == childView.$().attr('id') &&
-						    childView.constructor == Ember.SortableItem) {
-							var item = this.get('childViews')[j].get('item');
-							collection.push(item);
-						}
-					}
-				}
-				this.set('collection', collection);
+		var sortable = this.$().sortable({
+			update: jQuery.proxy(function (event, ui) {
+				var newIndex = this.$().find('.sortable-item').index(ui.item);
+				this.$().sortable('cancel');
+				var oldIndex = this.$().find('.sortable-item').index(ui.item);
+				this._moveCollectionElement(oldIndex, newIndex);
 				this._initSortable();
 			}, this)
 		});
 	},
 
-	willDestroyElement: function() {
+	_moveCollectionElement: function (from, to) {
+		var fromElem = this.get('collection').objectAt(from);
+		this.get('collection').removeAt(from);
+		this.get('collection').insertAt(to, fromElem);
+	},
+
+	willDestroyElement: function () {
 		this._super();
 	},
 
-	init: function() {
+	init: function () {
 		this._super();
 	}
 });

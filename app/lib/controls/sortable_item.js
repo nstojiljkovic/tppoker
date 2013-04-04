@@ -2,7 +2,7 @@
 Ember.SortableItem = Ember.View.extend({
 
     attributeBindings: ["content.name"],
-    classNames: ["ui-state-default"],
+    classNames: ["ui-state-default", "sortable-item"],
 
     tagName: "li",
 
