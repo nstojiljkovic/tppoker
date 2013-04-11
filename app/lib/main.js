@@ -1,4 +1,5 @@
 require('ember-tppoker/core');
+require('ember-tppoker/classes');
 require('ember-tppoker/controls');
 require('ember-tppoker/store');
 require('ember-tppoker/models');

@@ -30,3 +30,209 @@ TPPoker.Application.WizardIterationController = TPPoker.Application.AppControlle
 		TPPoker.Application.Router.router.transitionTo('wizard.query');
 	}
 });
+
+TPPoker.Application.WizardQueryController = TPPoker.Application.AppController.extend({
+	select: function() {
+		TPPoker.Application.Router.router.transitionTo('game');
+	}
+});
+
+TPPoker.Application.WizardQueryController = TPPoker.Application.AppController.extend({
+	select: function() {
+		TPPoker.Application.Router.router.transitionTo('game');
+	}
+});
+
+TPPoker.Application.WizardQueryController = TPPoker.Application.AppController.extend({
+	select: function() {
+		TPPoker.Application.Router.router.transitionTo('game');
+	}
+});
+
+TPPoker.Application.WizardQueryController = TPPoker.Application.AppController.extend({
+	select: function() {
+		TPPoker.Application.Router.router.transitionTo('game');
+		console.log(Ember.get("TPPoker.Application.Iteration.userStories"));
+		console.log(Ember.get("TPPoker.Application.Iteration.otherStories"));
+	}
+});
+
+TPPoker.Application.WizardQueryController = TPPoker.Application.AppController.extend({
+	select: function() {
+		TPPoker.Application.Router.router.transitionTo('game');
+	}
+});
+
+TPPoker.Application.WizardQueryController = TPPoker.Application.AppController.extend({
+	select: function() {
+		TPPoker.Application.Router.router.transitionTo('game');
+		console.log(Ember.get("TPPoker.Application.Iteration.userStories"));
+		console.log(Ember.get("TPPoker.Application.Iteration.otherStories"));
+	}
+});
+
+TPPoker.Application.WizardQueryController = TPPoker.Application.AppController.extend({
+	select: function() {
+		TPPoker.Application.Router.router.transitionTo('game');
+		console.log(Ember.get("TPPoker.Application.Iteration.userStories"));
+		console.log(Ember.get("TPPoker.Application.Iteration.otherStories"));
+	}
+});
+
+TPPoker.Application.WizardQueryController = TPPoker.Application.AppController.extend({
+	select: function() {
+		TPPoker.Application.Router.router.transitionTo('game');
+	}
+});
+
+TPPoker.Application.WizardQueryController = TPPoker.Application.AppController.extend({
+	select: function() {
+		TPPoker.Application.Router.router.transitionTo('game');
+		console.log(Ember.get("TPPoker.Application.Iteration.userStories"));
+		console.log(Ember.get("TPPoker.Application.Iteration.otherStories"));
+	}
+});
+
+TPPoker.Application.WizardQueryController = TPPoker.Application.AppController.extend({
+	select: function() {
+		TPPoker.Application.Router.router.transitionTo('game');
+	}
+});
+
+TPPoker.Application.WizardQueryController = TPPoker.Application.AppController.extend({
+	select: function() {
+		TPPoker.Application.Router.router.transitionTo('game');
+		console.log(Ember.get("TPPoker.Application.Iteration.userStories"));
+		console.log(Ember.get("TPPoker.Application.Iteration.otherStories"));
+	}
+});
+
+TPPoker.Application.WizardQueryController = TPPoker.Application.AppController.extend({
+	select: function() {
+		TPPoker.Application.Router.router.transitionTo('game');
+		console.log(Ember.get("TPPoker.Application.Iteration.userStories"));
+		console.log(Ember.get("TPPoker.Application.Iteration.otherStories"));
+	}
+});
+
+TPPoker.Application.WizardQueryController = TPPoker.Application.AppController.extend({
+	select: function() {
+		TPPoker.Application.Router.router.transitionTo('game');
+	}
+});
+
+TPPoker.Application.WizardQueryController = TPPoker.Application.AppController.extend({
+	select: function() {
+		TPPoker.Application.Router.router.transitionTo('game');
+		console.log(Ember.get("TPPoker.Application.Iteration.userStories"));
+		console.log(Ember.get("TPPoker.Application.Iteration.otherStories"));
+	}
+});
+
+TPPoker.Application.WizardQueryController = TPPoker.Application.AppController.extend({
+	select: function() {
+		TPPoker.Application.Router.router.transitionTo('game');
+		console.log(Ember.get("TPPoker.Application.Iteration.userStories"));
+		console.log(Ember.get("TPPoker.Application.Iteration.otherStories"));
+	}
+});
+
+TPPoker.Application.WizardQueryController = TPPoker.Application.AppController.extend({
+	select: function() {
+		TPPoker.Application.Router.router.transitionTo('game');
+	}
+});
+
+TPPoker.Application.WizardQueryController = TPPoker.Application.AppController.extend({
+	select: function() {
+		TPPoker.Application.Router.router.transitionTo('game');
+		console.log(Ember.get("TPPoker.Application.Iteration.userStories"));
+		console.log(Ember.get("TPPoker.Application.Iteration.otherStories"));
+	}
+});
+
+TPPoker.Application.WizardQueryController = TPPoker.Application.AppController.extend({
+	select: function() {
+		TPPoker.Application.Router.router.transitionTo('game');
+	}
+});
+
+TPPoker.Application.WizardQueryController = TPPoker.Application.AppController.extend({
+	select: function() {
+		TPPoker.Application.Router.router.transitionTo('game');
+		console.log(Ember.get("TPPoker.Application.Iteration.userStories"));
+		console.log(Ember.get("TPPoker.Application.Iteration.otherStories"));
+	}
+});
+
+TPPoker.Application.WizardQueryController = TPPoker.Application.AppController.extend({
+	select: function() {
+		TPPoker.Application.Router.router.transitionTo('game');
+		console.log(Ember.get("TPPoker.Application.Iteration.userStories"));
+		console.log(Ember.get("TPPoker.Application.Iteration.otherStories"));
+	}
+});
+
+TPPoker.Application.WizardQueryController = TPPoker.Application.AppController.extend({
+	select: function() {
+		TPPoker.Application.Router.router.transitionTo('game');
+	}
+});
+
+TPPoker.Application.WizardQueryController = TPPoker.Application.AppController.extend({
+	select: function() {
+		TPPoker.Application.Router.router.transitionTo('game');
+		console.log(Ember.get("TPPoker.Application.Iteration.userStories"));
+		console.log(Ember.get("TPPoker.Application.Iteration.otherStories"));
+	}
+});
+
+TPPoker.Application.WizardQueryController = TPPoker.Application.AppController.extend({
+	select: function() {
+		TPPoker.Application.Router.router.transitionTo('game');
+	}
+});
+
+TPPoker.Application.WizardQueryController = TPPoker.Application.AppController.extend({
+	select: function() {
+		TPPoker.Application.Router.router.transitionTo('game');
+		console.log(Ember.get("TPPoker.Application.Iteration.userStories"));
+		console.log(Ember.get("TPPoker.Application.Iteration.otherStories"));
+	}
+});
+
+TPPoker.Application.WizardQueryController = TPPoker.Application.AppController.extend({
+	select: function() {
+		TPPoker.Application.Router.router.transitionTo('game');
+		console.log(Ember.get("TPPoker.Application.Iteration.userStories"));
+		console.log(Ember.get("TPPoker.Application.Iteration.otherStories"));
+	}
+});
+
+TPPoker.Application.WizardQueryController = TPPoker.Application.AppController.extend({
+	select: function() {
+		TPPoker.Application.Router.router.transitionTo('game');
+	}
+});
+
+TPPoker.Application.WizardQueryController = TPPoker.Application.AppController.extend({
+	select: function() {
+		TPPoker.Application.Router.router.transitionTo('game');
+		console.log(Ember.get("TPPoker.Application.Iteration.userStories"));
+		console.log(Ember.get("TPPoker.Application.Iteration.otherStories"));
+	}
+});
+
+TPPoker.Application.WizardQueryController = TPPoker.Application.AppController.extend({
+	select: function() {
+		TPPoker.Application.Router.router.transitionTo('game');
+		console.log(Ember.get("TPPoker.Application.Iteration.userStories"));
+		console.log(Ember.get("TPPoker.Application.Iteration.otherStories"));
+	}
+});
+
+TPPoker.Application.WizardQueryController = TPPoker.Application.AppController.extend({
+	select: function() {
+		TPPoker.Application.Router.router.transitionTo('game');
+	}
+});

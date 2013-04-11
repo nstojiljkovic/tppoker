@@ -2,6 +2,7 @@ require('ember-tppoker/core');
 require('ember-tppoker/routes/app');
 require('ember-tppoker/routes/index');
 require('ember-tppoker/routes/wizard');
+require('ember-tppoker/routes/game');
 
 TPPoker.Application.Router.map(function() {
 	this.route("app", { path: "/app" });
@@ -15,4 +16,5 @@ TPPoker.Application.Router.map(function() {
 		this.route('iteration');
 		this.route('query');
 	});
+	this.route("game", { path: "/game" });
 });

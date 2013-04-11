@@ -6,6 +6,7 @@ require('ember');
 require('ember-data');
 require('ember-tppoker/ext');
 require('ember-tppoker/env');
+require('jquery.easy-pie-chart');
 
 // namespace
 TPPoker = {};

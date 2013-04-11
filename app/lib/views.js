@@ -1,3 +1,14 @@
 require('ember-tppoker/core');
 require('ember-tppoker/views/app');
 require('ember-tppoker/views/wizard');
+require('ember-tppoker/views/game');
+require('ember-tppoker/views/game');
+require('ember-tppoker/views/game');
+require('ember-tppoker/views/game');
+require('ember-tppoker/views/game');
+require('ember-tppoker/views/game');
+require('ember-tppoker/views/game');
+require('ember-tppoker/views/game');
+require('ember-tppoker/views/game');
+require('ember-tppoker/views/game');
+require('ember-tppoker/views/game');

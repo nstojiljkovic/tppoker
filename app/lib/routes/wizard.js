@@ -101,6 +101,8 @@ TPPoker.Application.WizardQueryRoute = TPPoker.Application.WizardRoute.extend({
 			queryBinding: 'TPPoker.Application.state.query',
 			_queryDidChange: function() {
 				this.set('_userStories', TPPoker.Application.UserStory.find({q: this.get('query')}));
+                var app = TPPoker.Application.state.get('app');
+                app.set("userStories", this.get("userStories"))
 			}.observes('query'),
 			_userStories: null,
 			_userStoriesQuery: null,
