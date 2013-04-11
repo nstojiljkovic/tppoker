@@ -101,6 +101,7 @@ TPPoker.Application.Game = DS.Model.extend({
 	}.observes("selectedCards.list")
 });
 
+/************This is old modal that works but its commented out so we could work only on game page with fixtures************/
 
 //
 //TPPoker.Application.Game = Ember.Object.extend({

@@ -1,3 +1,5 @@
+/*Classes needed for actual game go here*/
+
 Ember.PokerCard = Ember.View.extend({
     click: function () {
         var points = this.$().children(':first').attr("points");
